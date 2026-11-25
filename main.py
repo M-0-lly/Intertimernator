@@ -25,7 +25,7 @@ class Timernator(App):
         """
 
     def compose(self):
-        yield Static("\nTIMERNATOR\n", id="headline")
+        yield Static("\nTIMERNATOR\nby M-0-lly\n\n", id="headline")
         yield Static("A 15min interval Timer, to remind you of anything\n\nEdit the 'msg.txt'-file to customize your reminder-message!", id="desc")
         yield Container(
             Button("Start timer", id="start"),
@@ -34,9 +34,11 @@ class Timernator(App):
         )
 
     def run_msg(self) -> None:
-        script = Path(__file__).with_name("msg.py")
+        app_dir = Path(sys.executable).resolve().parent
+        msg_exe = app_dir / "msg.exe"
+
         subprocess.Popen(
-            [sys.executable, str(script)],
+            [str(msg_exe)],
             creationflags=subprocess.CREATE_NEW_CONSOLE,
         )
 
