@@ -25,7 +25,7 @@ class Timernator(App):
         """
 
     def compose(self):
-        yield Static("\nTIMERNATOR\nby M-0-lly\n\n", id="headline")
+        yield Static("\nINTERTIMERNATOR\nby M-0-lly\n\n", id="headline")
         yield Static("A 15min interval Timer, to remind you of anything\n\nEdit the 'msg.txt'-file to customize your reminder-message!", id="desc")
         yield Container(
             Button("Start timer", id="start"),
