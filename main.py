@@ -17,6 +17,7 @@ class Timernator(App):
         }
         #headline {
             text-align: center;
+            color: red;
         }
         
         #desc {
@@ -25,7 +26,19 @@ class Timernator(App):
         """
 
     def compose(self):
-        yield Static("\nINTERTIMERNATOR\nby M-0-lly\n\n", id="headline")
+        headline = r"""
+         (                                                                                   
+ )╲ )           )               )                                        )           
+(()╱(        ( ╱(   (   (    ( ╱( (      )      (   (              )  ( ╱(      (    
+ ╱(_)) (     )╲()) ))╲  )(   )╲()))╲    (      ))╲  )(    (     ( ╱(  )╲()) (   )(   
+(_))   )╲ ) (_))╱ ╱((_)(()╲ (_))╱((_)   )╲  ' ╱((_)(()╲   )╲ )  )(_))(_))╱  )╲ (()╲  
+│_ _│ _(_╱( │ │_ (_))   ((_)│ │_  (_) _((_)) (_))   ((_) _(_╱( ((_)_ │ │_  ((_) ((_) 
+ │ │ │ ' ╲))│  _│╱ ─_) │ '_││  _│ │ ││ '  ╲()╱ ─_) │ '_││ ' ╲))╱ _` ││  _│╱ _ ╲│ '_│ 
+│___││_││_│  ╲__│╲___│ │_│   ╲__│ │_││_│_│_│ ╲___│ │_│  │_││_│ ╲__,_│ ╲__│╲___╱│_│   
+                                                                                     
+        """
+
+        yield Static(headline + "\nby M-0-lly\n\n", id="headline")
         yield Static("A 15min interval Timer, to remind you of anything\n\nEdit the 'msg.txt'-file to customize your reminder-message!", id="desc")
         yield Container(
             Button("Start timer", id="start"),
