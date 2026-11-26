@@ -19,9 +19,10 @@
 from pathlib import Path
 import sys
 import subprocess
-from textual.widgets import Button, Static, TextArea
+from textual.widgets import Button, Static, TextArea, Input
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal
+from textual.validation import Number
 
 
 
@@ -29,14 +30,34 @@ from textual.containers import Horizontal
 
 class MsgEditor(App):
 
+    CSS = """
+            #headline {
+                color: red;
+            }
+            """
+
     def compose(self) -> ComposeResult:
 
-        yield Static("\nEnter your text and press save!\n\n")
-        yield TextArea(id="msgeditor")
+        headline = r"""
+         (                                   
+ )\ )        )   )                   
+(()/(  (  ( /(( /((        (  (      
+ /(_))))\ )\())\())\  (    )\))( (   
+(_)) /((_|_))(_))((_) )\ )((_))\ )\  
+/ __(_)) | |_| |_ (_)_(_/( (()(_|(_) 
+\__ Y -_)|  _|  _|| | ' \)) _` |(_-< 
+|___|___| \__|\__||_|_||_|\__, |/__/ 
+                          |___/      """ + "\n"
+
+        yield Static(headline, id="headline")
+        yield Input(placeholder = "Intervals in Minutes", type="integer", id="intervals")
+        yield Button("Set", id="set")
+        yield Static()
+        yield TextArea(id="msgeditor", placeholder="Message-Editor")
         yield Horizontal(
             Button("Save", id="save"),
             Button("Preview", id="preview"),
-            Button("Cancel", id="cancel"),
+            Button("Back", id="cancel"),
         )
 
 
@@ -64,6 +85,10 @@ class MsgEditor(App):
 
         elif event.button.id == "cancel":
             self.exit()
+
+        elif event.button.id == "set":
+            value = self.query_one("#intervals", Input).value
+            Path("_internal/intervals.txt").write_text(value, encoding="utf-8")
 
 
 

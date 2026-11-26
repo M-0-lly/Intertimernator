@@ -44,6 +44,12 @@ class Timernator(App):
 
 
 
+    def __init__(self) -> None:
+        super().__init__()
+        self.timer = None
+
+
+
     def compose(self):
 
         headline = r"""
@@ -62,7 +68,7 @@ class Timernator(App):
         yield Container(
             Button("Start timer", id="start"),
             Button("Stop timer", id="stop", disabled=True),
-            Button("Configure", id="conf"),
+            Button("Settings", id="conf"),
             Button("Close App", id="close"), id="interface"
         )
 
@@ -90,33 +96,40 @@ class Timernator(App):
             creationflags=subprocess.CREATE_NEW_CONSOLE,
         )
 
-
-
-    def on_mount(self) -> None:
-
-        self.timer = self.set_interval(900, self.run_msg, pause=True)
-
-
-
     def on_button_pressed(self, event: Button.Pressed) -> None:
+        button_id = event.button.id
 
-        if event.button.id == "start":
+        if button_id == "start":
+            interval = Path("_internal/intervals.txt").read_text(
+                encoding="utf-8"
+            ).strip()
+
+            self.timer = self.set_interval(
+                int(interval) * 60,
+                self.run_msg,
+                pause=True,
+            )
             self.timer.resume()
+
             self.query_one("#start", Button).disabled = True
             self.query_one("#stop", Button).disabled = False
 
-        elif event.button.id == "stop":
-            self.timer.pause()
+        elif button_id == "stop":
+            if self.timer is not None:
+                self.timer.stop()
+
             self.query_one("#start", Button).disabled = False
             self.query_one("#stop", Button).disabled = True
 
-        elif event.button.id == "conf":
-            self.timer.pause()
+        elif button_id == "conf":
+            if self.timer is not None:
+                self.timer.stop()
+
             self.query_one("#start", Button).disabled = False
             self.query_one("#stop", Button).disabled = True
             self.run_msgeditor()
 
-        elif event.button.id == "close":
+        elif button_id == "close":
             self.exit()
 
 
