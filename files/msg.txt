@@ -1,5 +1,9 @@
-Denk an trinken!
+Are you still locked in?
 
-Hast du was gegessen? 
+Did you forget something?
 
-Test Test
+Are you hungry?
+
+Are you thirsty?
+
+Do you need to use the bathroom?
