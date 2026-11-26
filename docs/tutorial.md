@@ -23,7 +23,7 @@ In the Main-Menu, you can start and pause the intervals.
 
 - Press "Start timer" to start the intervals. Every 15 Minutes, your Message will open as a separate window.
 - Press "Stop timer" to pause it. 
-- Press "Configure" to configure your message. A second window will open, the Message-Editor.
+- Press "Configure" to configure your message. A second window will open, the [Message-Editor](#Message-Editor)
 - Press "Close App" to close the app.
 
 ---
