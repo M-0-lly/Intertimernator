@@ -17,7 +17,7 @@ As of now, the program can do the following:
 
 ### Main-Menu
 
-![Main-Menu](pics/mainmenu.png)
+![Main-Menu](tutorialpics/mainmenu.png)
 
 In the Main-Menu, you can start and pause the intervals.
 
@@ -30,7 +30,7 @@ In the Main-Menu, you can start and pause the intervals.
 
 ### Message-Editor
 
-![Message-Editor](pics/msgeditor.png)
+![Message-Editor](tutorialpics/msgeditor.png)
 
 In the Message-Editor, you can customize your message to your liking!
 
@@ -44,6 +44,6 @@ Are you easily distracted? Do you forget to drink water a lot? Doesn't matter, t
 
 ### Message
 
-![Message](pics/msg.png)
+![Message](tutorialpics/msg.png)
 
 This is the message you configure. Press "Close Message" to close it.
