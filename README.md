@@ -16,6 +16,7 @@ You can customize the message by editing the msg.txt-file.
 ### :construction: Planned features :construction:
 - [ ] Configurable intervals
 - [ ] In-App customization of the reminder-message
+- [ ] Button clicking sound-effects
 
 ---
 
