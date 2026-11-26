@@ -57,7 +57,7 @@ class MsgEditor(App):
 
         if event.button.id == "save":
             msg = self.query_one("#msgeditor", TextArea).text
-            Path("msg.txt").write_text(msg, encoding="utf-8")
+            Path("_internal/msg.txt").write_text(msg, encoding="utf-8")
 
         elif event.button.id == "preview":
             self.run_msg()

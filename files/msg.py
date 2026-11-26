@@ -39,7 +39,7 @@ class Msg(App):
 
     def compose(self) -> ComposeResult:
 
-        with open("msg.txt", "r") as f:
+        with open("_internal/msg.txt", "r") as f:
             message = f.read()
 
         yield Static("\n\n\n\n" + message, id="msg")
