@@ -37,7 +37,6 @@ class Timernator(App):
             text-align: center;
             color: red;
         }
-        
         #desc {
             text-align: center;
         }

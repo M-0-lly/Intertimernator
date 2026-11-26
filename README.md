@@ -9,9 +9,7 @@ Intertimernator is a simple interval-timer. After pressing "Start Timer", a new 
 Use it for work, for your projects, or whatever. It's a great tool if you're easily distracted!
 
 ### How does this work
-Simply press "Start Timer" to start the intervals. As of right now, the message will open every 15 Minutes. 
-Pressing "Stop Timer" will stop the intervals.
-You can customize the message by editing the msg.txt-file.
+The program is very simple: "Start Timer" to start the intervals, "Stop Timer" to stop them, "Configure" to configure your message; [I have also written a tutorial!](docs/tutorial.md)
 
 ### :construction: Planned features :construction:
 - [ ] Configurable intervals
