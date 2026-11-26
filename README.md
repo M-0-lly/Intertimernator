@@ -18,4 +18,4 @@ You can customize the message by editing the msg.txt-file.
 Simply grab a setup from the releases-section and install it.
 
 ### How to uninstall
-Simply run the unins000.exe within the uninstall-directory.
+Simply run the "Uninstall Intertimernator" within the uninstall-directory.
