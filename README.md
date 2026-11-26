@@ -19,8 +19,12 @@ A small tui-interval-timer to remind you of anything
 Intertimernator is a simple interval-timer. After pressing "Start Timer", a new terminal-window will open every 15 Minutes, displaying a custom message.
 Use it for work, for your projects, or whatever. It's a great tool if you're easily distracted!
 
+---
+
 ### How to contribute
 Don't, I don't want any donation. You can use the code however you like tho, just don't sell it!
+
+---
 
 ### How does Intertimernator work?
 [Check out my tutorial](docs/tutorial.md), I try to keep it as up-to-date as possible.
