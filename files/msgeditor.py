@@ -1,4 +1,4 @@
-# "Intertimernator" – a small TUI-Game in Python
+# "Intertimernator" – a small TUI-Interval-Timer
 # Copyright (C) 2026 Tom Steinbach
 #
 # This program is free software: you can redistribute it and/or modify
