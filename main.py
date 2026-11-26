@@ -27,31 +27,40 @@ class Timernator(App):
 
     def compose(self):
         headline = r"""
-         (                                                                                   
- )╲ )           )               )                                        )           
-(()╱(        ( ╱(   (   (    ( ╱( (      )      (   (              )  ( ╱(      (    
- ╱(_)) (     )╲()) ))╲  )(   )╲()))╲    (      ))╲  )(    (     ( ╱(  )╲()) (   )(   
-(_))   )╲ ) (_))╱ ╱((_)(()╲ (_))╱((_)   )╲  ' ╱((_)(()╲   )╲ )  )(_))(_))╱  )╲ (()╲  
-│_ _│ _(_╱( │ │_ (_))   ((_)│ │_  (_) _((_)) (_))   ((_) _(_╱( ((_)_ │ │_  ((_) ((_) 
- │ │ │ ' ╲))│  _│╱ ─_) │ '_││  _│ │ ││ '  ╲()╱ ─_) │ '_││ ' ╲))╱ _` ││  _│╱ _ ╲│ '_│ 
-│___││_││_│  ╲__│╲___│ │_│   ╲__│ │_││_│_│_│ ╲___│ │_│  │_││_│ ╲__,_│ ╲__│╲___╱│_│   
-                                                                                     
-        """
+             (                                                                                   
+     )╲ )           )               )                                        )           
+    (()╱(        ( ╱(   (   (    ( ╱( (      )      (   (              )  ( ╱(      (    
+     ╱(_)) (     )╲()) ))╲  )(   )╲()))╲    (      ))╲  )(    (     ( ╱(  )╲()) (   )(   
+    (_))   )╲ ) (_))╱ ╱((_)(()╲ (_))╱((_)   )╲  ' ╱((_)(()╲   )╲ )  )(_))(_))╱  )╲ (()╲  
+    │_ _│ _(_╱( │ │_ (_))   ((_)│ │_  (_) _((_)) (_))   ((_) _(_╱( ((_)_ │ │_  ((_) ((_) 
+     │ │ │ ' ╲))│  _│╱ ─_) │ '_││  _│ │ ││ '  ╲()╱ ─_) │ '_││ ' ╲))╱ _` ││  _│╱ _ ╲│ '_│ 
+│___││_││_│  ╲__│╲___│ │_│   ╲__│ │_││_│_│_│ ╲___│ │_│  │_││_│ ╲__,_│ ╲__│╲___╱│_│
+"""
 
         yield Static(headline + "\nby M-0-lly\n\n", id="headline")
-        yield Static("A 15min interval Timer, to remind you of anything\n\nEdit the 'msg.txt'-file to customize your reminder-message!", id="desc")
+        yield Static("A 15min interval Timer, to remind you of anything\n\nHit 'Configure' to customize your reminder-message!", id="desc")
         yield Container(
             Button("Start timer", id="start"),
             Button("Stop timer", id="stop", disabled=True),
+            Button("Configure", id="conf"),
             Button("Close App", id="close"), id="interface"
         )
 
     def run_msg(self) -> None:
         app_dir = Path(sys.executable).resolve().parent
-        msg_exe = app_dir / "msg.exe"
+        msg_exe = app_dir / "_internal/msg.exe"
 
         subprocess.Popen(
             [str(msg_exe)],
+            creationflags=subprocess.CREATE_NEW_CONSOLE,
+        )
+
+    def run_msgeditor(self) -> None:
+        app_dir = Path(sys.executable).resolve().parent
+        msgeditor_exe = app_dir / "_internal/msgeditor.exe"
+
+        subprocess.Popen(
+            [str(msgeditor_exe)],
             creationflags=subprocess.CREATE_NEW_CONSOLE,
         )
 
@@ -67,6 +76,11 @@ class Timernator(App):
             self.timer.pause()
             self.query_one("#start", Button).disabled = False
             self.query_one("#stop", Button).disabled = True
+        elif event.button.id == "conf":
+            self.timer.pause()
+            self.query_one("#start", Button).disabled = False
+            self.query_one("#stop", Button).disabled = True
+            self.run_msgeditor()
         elif event.button.id == "close":
             self.exit()
 

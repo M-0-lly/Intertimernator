@@ -21,7 +21,7 @@ You can customize the message by editing the msg.txt-file.
 ---
 
 ### How to install
-Simply grab a setup from the releases-section and install it.
+Simply grab a setup from the releases-section and run it. You can choose a directory to install wherever you like, it'll run.
 
 ### How to uninstall
 Simply run the "Uninstall Intertimernator" within the uninstall-directory.

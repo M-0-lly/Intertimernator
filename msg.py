@@ -1,9 +1,4 @@
-import time
-from pathlib import Path
-import sys
-import subprocess
 from textual.widgets import Button, Static
-from textual.screen import Screen
 from textual.app import App, ComposeResult
 from textual.containers import Container
 
@@ -22,12 +17,12 @@ class Msg(App):
             }
             """
 
-    def compose(self):
+    def compose(self) -> ComposeResult:
 
         with open("msg.txt", "r") as f:
             message = f.read()
 
-        yield Static(message, id="msg")
+        yield Static("\n\n\n\n" + message, id="msg")
         yield Container(
             Button("Close Message", id="close"), id="interface"
         )
