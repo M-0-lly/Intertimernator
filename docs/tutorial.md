@@ -1,4 +1,4 @@
-# Intertimernator Tutorial (for v1.1.0)
+# Intertimernator Tutorial (for v1.1.1)
 
 This is a tutorial for the "Intertimernator"-Interval-Timer.
 
