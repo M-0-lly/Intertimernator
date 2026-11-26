@@ -32,7 +32,7 @@ class Timernator(App):
     CSS = """
         #interface {
             align: center middle;
-        }
+        } 
         #headline {
             text-align: center;
             color: red;
@@ -64,7 +64,7 @@ class Timernator(App):
 """
 
         yield Static(headline + "\nby M-0-lly\n\n", id="headline")
-        yield Static("A 15min interval Timer, to remind you of anything\n\nHit 'Configure' to customize your reminder-message!", id="desc")
+        yield Static("An interval Timer, to remind you of anything!\n\nHit 'Settings' to configure the intervals.", id="desc")
         yield Container(
             Button("Start timer", id="start"),
             Button("Stop timer", id="stop", disabled=True),

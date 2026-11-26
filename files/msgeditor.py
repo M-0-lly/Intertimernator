@@ -33,6 +33,16 @@ class MsgEditor(App):
     CSS = """
             #headline {
                 color: red;
+                text-align: center;
+            }
+            #buttons {
+                align: center middle;
+            }
+            #intervals {
+                align: center middle;
+            }
+            #set {
+                align: center middle;
             }
             """
 
@@ -53,11 +63,11 @@ class MsgEditor(App):
         yield Input(placeholder = "Intervals in Minutes", type="integer", id="intervals")
         yield Button("Set", id="set")
         yield Static()
-        yield TextArea(id="msgeditor", placeholder="Message-Editor")
+        yield TextArea(id="msgeditor", placeholder="Type in your message and hit safe!")
         yield Horizontal(
             Button("Save", id="save"),
             Button("Preview", id="preview"),
-            Button("Back", id="cancel"),
+            Button("Back", id="cancel"), id="buttons"
         )
 
 
